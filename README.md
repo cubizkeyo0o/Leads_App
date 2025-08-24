@@ -10,7 +10,14 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    npm install
    ```
 
-2. Start the app
+2. Create a .env file in the root of the project and add your environment variables:
+
+   ```bash
+   API_URL=https://your-api-url.com
+   API_KEY=your-api-key-here
+   ```
+
+3. Start the app
 
    ```bash
    npx expo start
