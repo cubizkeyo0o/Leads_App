@@ -1,9 +1,10 @@
-import { Link, useNavigation } from 'expo-router';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Text, View } from 'react-native';
+import { Lead } from '../leadsType';
 
 interface LeadItemProps {
-  lead: any;
+  lead: Lead;
 }
 
 const LeadItem: React.FC<LeadItemProps> = ({ lead }) => {
@@ -11,8 +12,8 @@ const LeadItem: React.FC<LeadItemProps> = ({ lead }) => {
 
   return (
     <View>
-        <Text>{lead.name} - {lead.status} - Last update: {lead.lastUpdate}</Text>
-        <Link href="/pages/LeadDetailRoute" />
+        <Text>{lead.name} - {lead.email} - {lead.phone} - Last update: {lead.updatedAt}</Text>
+        {/* <Button onPress={() => navigation.navigate('')}/> */}
       </View>
   );
 };

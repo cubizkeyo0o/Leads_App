@@ -1,21 +1,22 @@
+import { useAppDispatch, useAppSelector } from '@/features/hook';
 import { getNotes } from '@/features/notes/notesSlice';
-import { AppDispatch, RootState } from '@/store';
+import { RootStackParamList } from '@/route/Type';
+import { RootState } from '@/store';
 import { RouteProp } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { Text, View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
 import LeadDetails from './LeadsDetail';
 
-type LeadDetailsScreenRouteProp = RouteProp<{ params: { leadId: string } }, 'params'>;
+type LeadDetailsRouteProp = RouteProp<RootStackParamList, "LeadDetailsScreen">;
 
-interface LeadDetailsScreenProps {
-  route: LeadDetailsScreenRouteProp;
-}
+type Props = {
+  route: LeadDetailsRouteProp;
+};
 
-const LeadDetailsScreen: React.FC<LeadDetailsScreenProps> = ({ route }) => {
+const LeadDetailsScreen: React.FC<Props> = ({route }) => {
   const { leadId } = route.params;
-  const dispatch: AppDispatch = useDispatch();
-  const lead = useSelector((state: RootState) => state.leads.leads.find(l => l._id === leadId));
+  const dispatch = useAppDispatch();
+  const lead = useAppSelector((state: RootState) => state.leads.leads.find(l => l._id === leadId));
 
   useEffect(() => {
     if (leadId) dispatch(getNotes(leadId));

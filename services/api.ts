@@ -1,7 +1,13 @@
+import { API_KEY, API_URL } from '@env';
 import axios from 'axios';
 
-const api = axios.create({
-  baseURL: 'https://crudcrud.com/api/YOUR_KEY',
+const BASE_URL = API_URL + API_KEY;
+
+const mainAxios = axios.create({
+  baseURL: BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
-export default api;
+export default mainAxios;
