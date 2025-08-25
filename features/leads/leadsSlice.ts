@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { createLead, deleteLead, fetchLeads, updateLead } from './leadsApi';
 import { Lead } from './leadsType';
 
-interface LeadsState {
+export interface LeadsState {
   leads: Lead[];
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
