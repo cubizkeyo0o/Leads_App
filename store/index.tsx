@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   notes: notesReducer,
 });
 
-const configStore = () => 
+export const configStore = () => 
   configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
